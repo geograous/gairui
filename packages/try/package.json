@@ -1,0 +1,13 @@
+{
+  "name": "try",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "cjs": "node ./cjs-module/index",
+    "cjs:pack": "node ./cjs-module/pack",
+    "cjs:test": "node ./cjs-module/bundle",
+    "cjs:exec": "yarn run cjs:pack && yarn run cjs:test"
+  }
+}
