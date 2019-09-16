@@ -3,10 +3,14 @@ const fs = require('fs')
 const path = require('path')
 
 const relativePathList = ['./index.js', './mod1.js']
-const absolutePathList = relativePathList.map(relativePath => path.join(__dirname, relativePath))
-const moduleSchemes = absolutePathList.map(path => ({
-  path,
-  content: fs.readFileSync(path, 'utf-8')
+const pathMap = relativePathList.reduce((map, relativePath) => {
+  map[relativePath] = path.join(__dirname, relativePath)
+  return map
+}, {})
+console.log(relativePathList, pathMap)
+const moduleSchemes = relativePathList.map(relativePath => ({
+  path: pathMap[relativePath],
+  content: fs.readFileSync(pathMap[relativePath], 'utf-8')
 }))
 
 function bundle(inputs) {
@@ -14,9 +18,9 @@ function bundle(inputs) {
   const moduleContents = moduleSchemes.map(createModule).join(',')
   return `
     (function(moduleMap){
-      const path = require('path')
+      const pathMap = ${JSON.stringify(pathMap)}
       function require(fileName) {
-        const filePath = path.join(__dirname, fileName)
+        const filePath = pathMap[fileName]
         if (moduleMap[filePath]) {
           return moduleMap[filePath](require)
         }
@@ -27,8 +31,8 @@ function bundle(inputs) {
 }
 
 function createInput(relativePath) {
-  const absolutePath = path.join(__dirname, relativePath)
-  return `require('${absolutePath}')`
+  // const absolutePath = path.join(__dirname, relativePath)
+  return `require('${relativePath}')`
 }
 
 function createModule({ path, content }) {
