@@ -8,6 +8,7 @@
     "cjs": "node ./cjs-module/index",
     "cjs:pack": "node ./cjs-module/pack",
     "cjs:test": "node ./cjs-module/bundle",
-    "cjs:exec": "yarn run cjs:pack && yarn run cjs:test"
+    "cjs:exec": "yarn run cjs:pack && yarn run cjs:test",
+    "amd": "node ./amd-module/index"
   }
 }

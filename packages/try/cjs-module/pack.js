@@ -7,7 +7,6 @@ const pathMap = relativePathList.reduce((map, relativePath) => {
   map[relativePath] = path.join(__dirname, relativePath)
   return map
 }, {})
-console.log(relativePathList, pathMap)
 const moduleSchemes = relativePathList.map(relativePath => ({
   path: pathMap[relativePath],
   content: fs.readFileSync(pathMap[relativePath], 'utf-8')
@@ -31,7 +30,6 @@ function bundle(inputs) {
 }
 
 function createInput(relativePath) {
-  // const absolutePath = path.join(__dirname, relativePath)
   return `require('${relativePath}')`
 }
 
