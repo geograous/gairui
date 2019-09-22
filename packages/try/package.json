@@ -9,6 +9,13 @@
     "cjs:pack": "node ./cjs-module/pack",
     "cjs:test": "node ./cjs-module/bundle",
     "cjs:exec": "yarn run cjs:pack && yarn run cjs:test",
-    "amd": "node ./amd-module/index"
+    "amd": "node ./amd-module/index",
+    "es": "node ./es-module/pack"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.6.0",
+    "@babel/parser": "^7.6.0",
+    "@babel/template": "^7.6.0",
+    "@babel/traverse": "^7.6.0"
   }
 }
