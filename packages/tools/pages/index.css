@@ -1,0 +1,12 @@
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';
+
+.normal {
+  background: #7999F2;
+}
+
+.normal #code {
+  width: 100%;
+  min-height: 60px;
+  background: white;
+}

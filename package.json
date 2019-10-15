@@ -18,5 +18,8 @@
   "homepage": "https://github.com/geograous/gairui#readme",
   "devDependencies": {
     "lerna": "^3.14.1"
+  },
+  "dependencies": {
+    "codemirror": "^5.49.0"
   }
 }

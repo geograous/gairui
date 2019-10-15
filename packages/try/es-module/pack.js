@@ -1,4 +1,6 @@
-
+/**
+ * scope hoist, tree shaking, code split
+ */
 const fs = require('fs')
 const path = require('path')
 const parser = require('@babel/parser')
