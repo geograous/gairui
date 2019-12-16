@@ -9,7 +9,5 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codemirror": "^5.49.0",
-    "react-codemirror2": "^6.0.0"
   }
 }
